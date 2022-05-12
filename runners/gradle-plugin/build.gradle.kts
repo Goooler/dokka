@@ -16,14 +16,14 @@ dependencies {
     val jackson_version: String by project
     compileOnly("com.fasterxml.jackson.core:jackson-annotations:$jackson_version")
     compileOnly("org.jetbrains.kotlin:kotlin-gradle-plugin")
-    compileOnly("com.android.tools.build:gradle:7.1.3")
+    compileOnly("com.android.tools.build:gradle:7.2.0")
     compileOnly(gradleApi())
     compileOnly(gradleKotlinDsl())
     testImplementation(project(":test-utils"))
     testImplementation(gradleApi())
     testImplementation(gradleKotlinDsl())
     testImplementation("org.jetbrains.kotlin:kotlin-gradle-plugin")
-    testImplementation("com.android.tools.build:gradle:7.1.3")
+    testImplementation("com.android.tools.build:gradle:7.2.0")
 
     // Fix https://github.com/gradle/gradle/issues/16774
     testImplementation (
