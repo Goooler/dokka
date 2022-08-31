@@ -19,6 +19,7 @@ private fun isMainCompilation(compilation: KotlinCompilation): Boolean {
     try {
         val androidVariant = (compilation as? KotlinJvmAndroidCompilation)?.androidVariant
         if (androidVariant != null) {
+            @Suppress("DEPRECATION")
             return androidVariant is LibraryVariant || androidVariant is ApplicationVariant
         }
     } catch (e: NoSuchMethodError) {
