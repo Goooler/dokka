@@ -9,8 +9,7 @@ internal fun Project.isMainSourceSet(sourceSet: KotlinSourceSet): Boolean {
 }
 
 internal fun isMainSourceSet(compilations: List<KotlinCompilation>): Boolean {
-    if (compilations.isEmpty()) return true
-    return compilations.any { compilation -> isMainCompilation(compilation) }
+    return if (compilations.isEmpty()) true else compilations.any(::isMainCompilation)
 }
 
 private fun isMainCompilation(compilation: KotlinCompilation): Boolean {
