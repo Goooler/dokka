@@ -32,8 +32,9 @@ class AndroidAutoConfigurationTest {
             val sourceSets = task.dokkaSourceSets.toList()
             assertEquals(
                 listOf(
-                    "androidTest", "androidTestDebug", "debug", "main",
-                    "release", "test", "testDebug", "testRelease"
+                    "androidTest", "androidTestDebug", "androidTestRelease",
+                    "debug", "main", "release",
+                    "test", "testDebug", "testFixtures", "testFixturesDebug", "testFixturesRelease", "testRelease"
                 ).sorted(),
                 sourceSets.map { it.name }.sorted(),
                 "Expected all default source sets being registered"
