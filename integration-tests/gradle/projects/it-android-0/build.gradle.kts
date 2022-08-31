@@ -8,6 +8,7 @@ apply(from = "../template.root.gradle.kts")
 
 android {
     compileSdk = 29
+    namespace = "org.jetbrains.dokka.it.android"
     defaultConfig {
         minSdk = 21
     }
