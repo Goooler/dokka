@@ -7,9 +7,9 @@ plugins {
 apply(from = "../template.root.gradle.kts")
 
 android {
+    compileSdk 29
     defaultConfig {
-        minSdkVersion(21)
-        setCompileSdkVersion(29)
+        minSdk 21
     }
 }
 

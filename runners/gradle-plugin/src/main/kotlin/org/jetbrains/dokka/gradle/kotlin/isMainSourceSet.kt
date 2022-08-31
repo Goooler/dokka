@@ -17,7 +17,7 @@ internal fun isMainSourceSet(compilations: List<KotlinCompilation>): Boolean {
 
 private fun isMainCompilation(compilation: KotlinCompilation): Boolean {
     try {
-        val androidVariant = compilation.run { this as? KotlinJvmAndroidCompilation }?.androidVariant
+        val androidVariant = (compilation as? KotlinJvmAndroidCompilation)?.androidVariant
         if (androidVariant != null) {
             return androidVariant is LibraryVariant || androidVariant is ApplicationVariant
         }
