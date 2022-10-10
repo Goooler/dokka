@@ -14,12 +14,12 @@ dependencies {
     api(project(":core"))
 
     compileOnly("org.jetbrains.kotlin:kotlin-gradle-plugin")
-    compileOnly("com.android.tools.build:gradle:7.2.2")
+    compileOnly("com.android.tools.build:gradle:7.3.0")
     compileOnly(gradleKotlinDsl())
     testImplementation(project(":test-utils"))
     testImplementation(gradleKotlinDsl())
     testImplementation("org.jetbrains.kotlin:kotlin-gradle-plugin")
-    testImplementation("com.android.tools.build:gradle:7.2.2")
+    testImplementation("com.android.tools.build:gradle:7.3.0")
 
     // Fix https://github.com/gradle/gradle/issues/16774
     testImplementation (
