@@ -382,13 +382,13 @@ enum class SymbolContentKind : Kind {
 }
 
 enum class TokenStyle : Style {
-    Keyword, Punctuation, Function, Operator, Annotation, Number, String, Boolean, Constant, Builtin
+    Keyword, Punctuation, Function, Operator, Annotation, Number, String, Boolean, Constant
 }
 
 enum class TextStyle : Style {
     Bold, Italic, Strong, Strikethrough, Paragraph,
     Block, Span, Monospace, Indented, Cover, UnderCoverText, BreakableAfter, Breakable, InlineComment, Quotation,
-    FloatingRight, Var
+    FloatingRight, Var, Underlined
 }
 
 enum class ContentStyle : Style {

@@ -563,12 +563,19 @@ public final class org/jetbrains/dokka/base/renderers/html/TagsKt {
 	public static final fun templateCommandAsHtmlComment (Lkotlinx/html/FlowOrMetaDataContent;Lorg/jetbrains/dokka/base/templating/Command;Lkotlin/jvm/functions/Function1;)V
 	public static synthetic fun templateCommandAsHtmlComment$default (Lkotlinx/html/FlowOrMetaDataContent;Lorg/jetbrains/dokka/base/templating/Command;Lkotlin/jvm/functions/Function1;ILjava/lang/Object;)V
 	public static final fun templateCommandFor (Lorg/jetbrains/dokka/base/templating/Command;Lkotlinx/html/TagConsumer;)Lorg/jetbrains/dokka/base/renderers/html/TemplateCommand;
+	public static final fun underline (Lkotlinx/html/FlowOrPhrasingContent;Ljava/lang/String;Lkotlin/jvm/functions/Function1;)V
+	public static synthetic fun underline$default (Lkotlinx/html/FlowOrPhrasingContent;Ljava/lang/String;Lkotlin/jvm/functions/Function1;ILjava/lang/Object;)V
 	public static final fun wbr (Lkotlinx/html/FlowOrPhrasingContent;Ljava/lang/String;Lkotlin/jvm/functions/Function1;)V
 	public static synthetic fun wbr$default (Lkotlinx/html/FlowOrPhrasingContent;Ljava/lang/String;Lkotlin/jvm/functions/Function1;ILjava/lang/Object;)V
 }
 
 public final class org/jetbrains/dokka/base/renderers/html/TemplateCommand : kotlinx/html/HTMLTag, kotlinx/html/CommonAttributeGroupFacadeFlowInteractivePhrasingContent {
 	public fun <init> (Ljava/util/Map;Lkotlinx/html/TagConsumer;)V
+}
+
+public class org/jetbrains/dokka/base/renderers/html/UNDERLINE : kotlinx/html/HTMLTag, kotlinx/html/HtmlBlockInlineTag {
+	public fun <init> (Ljava/util/Map;Lkotlinx/html/TagConsumer;)V
+	public fun getConsumer ()Lkotlinx/html/TagConsumer;
 }
 
 public class org/jetbrains/dokka/base/renderers/html/WBR : kotlinx/html/HTMLTag, kotlinx/html/HtmlBlockInlineTag {
@@ -1168,7 +1175,7 @@ public abstract class org/jetbrains/dokka/base/transformers/documentables/Docume
 	protected fun processBound (Lorg/jetbrains/dokka/model/Bound;)Lorg/jetbrains/dokka/base/transformers/documentables/DocumentableReplacerTransformer$AnyWithChanges;
 	protected fun processClassLike (Lorg/jetbrains/dokka/model/DClasslike;)Lorg/jetbrains/dokka/base/transformers/documentables/DocumentableReplacerTransformer$AnyWithChanges;
 	protected fun processEnumEntry (Lorg/jetbrains/dokka/model/DEnumEntry;)Lorg/jetbrains/dokka/base/transformers/documentables/DocumentableReplacerTransformer$AnyWithChanges;
-	protected final fun processFunction (Lorg/jetbrains/dokka/model/DFunction;)Lorg/jetbrains/dokka/base/transformers/documentables/DocumentableReplacerTransformer$AnyWithChanges;
+	protected fun processFunction (Lorg/jetbrains/dokka/model/DFunction;)Lorg/jetbrains/dokka/base/transformers/documentables/DocumentableReplacerTransformer$AnyWithChanges;
 	protected fun processFunctionalTypeConstructor (Lorg/jetbrains/dokka/model/FunctionalTypeConstructor;)Lorg/jetbrains/dokka/base/transformers/documentables/DocumentableReplacerTransformer$AnyWithChanges;
 	protected fun processGenericTypeConstructor (Lorg/jetbrains/dokka/model/GenericTypeConstructor;)Lorg/jetbrains/dokka/base/transformers/documentables/DocumentableReplacerTransformer$AnyWithChanges;
 	protected fun processModule (Lorg/jetbrains/dokka/model/DModule;)Lorg/jetbrains/dokka/base/transformers/documentables/DocumentableReplacerTransformer$AnyWithChanges;

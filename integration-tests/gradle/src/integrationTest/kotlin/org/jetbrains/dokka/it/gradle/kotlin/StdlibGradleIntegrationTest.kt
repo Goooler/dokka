@@ -1,16 +1,17 @@
 package org.jetbrains.dokka.it.gradle.kotlin
 
 import org.gradle.testkit.runner.TaskOutcome
-import org.jetbrains.dokka.it.S3Project
+import org.jetbrains.dokka.it.TestOutputCopier
 import org.jetbrains.dokka.it.copyAndApplyGitDiff
 import org.jetbrains.dokka.it.gradle.AbstractGradleIntegrationTest
 import org.jetbrains.dokka.it.gradle.BuildVersions
 import org.junit.runners.Parameterized
 import java.io.File
+import java.net.URL
 import kotlin.test.*
 
 class StdlibGradleIntegrationTest(override val versions: BuildVersions) : AbstractGradleIntegrationTest(),
-    S3Project {
+    TestOutputCopier {
 
     companion object {
         @get:JvmStatic
