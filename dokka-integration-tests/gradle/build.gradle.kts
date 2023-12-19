@@ -23,7 +23,7 @@ val aggregatingProject = gradle.includedBuild("dokka")
 
 tasks.integrationTest {
     // pass the property to a test fork
-    project.findProperty("org.jetbrains.dokka.experimental.tryK2")
+    providers.gradleProperty("org.jetbrains.dokka.experimental.tryK2").orNull
         ?.let { systemProperty("org.jetbrains.dokka.experimental.tryK2", it) }
 
     dependsOn(aggregatingProject.task(":publishToMavenLocal"))
