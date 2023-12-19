@@ -30,4 +30,4 @@ tasks.withType<DokkaTask> {
     }
 }
 
-fun Project.getBooleanProperty(name: String): Boolean = (project.property(name) as String).toBoolean()
+fun Project.getBooleanProperty(name: String): Boolean = providers.gradleProperty(name).orNull.toBoolean().toBoolean()
