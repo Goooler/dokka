@@ -63,7 +63,7 @@ val integrationTest by tasks.registering(NonCacheableIntegrationTest::class) {
     environment(
         "isExhaustive",
         project.properties["dokka_integration_test_is_exhaustive"]?.toString()?.toBoolean()
-            ?: System.getenv("DOKKA_INTEGRATION_TEST_IS_EXHAUSTIVE")?.toBoolean()
+            ?: providers.systemProperty("DOKKA_INTEGRATION_TEST_IS_EXHAUSTIVE").orNull?.toBoolean()
             ?: false.toString()
     )
     

@@ -13,24 +13,24 @@ publishing {
             name = "mavenCentral"
             url = uri("https://oss.sonatype.org/service/local/staging/deploy/maven2/")
             credentials {
-                username = System.getenv("DOKKA_SONATYPE_USER")
-                password = System.getenv("DOKKA_SONATYPE_PASSWORD")
+                username = providers.systemProperty("DOKKA_SONATYPE_USER").orNull
+                password = providers.systemProperty("DOKKA_SONATYPE_PASSWORD").orNull
             }
         }
         maven {
             name = "spaceDev"
             url = uri("https://maven.pkg.jetbrains.space/kotlin/p/dokka/dev")
             credentials {
-                username = System.getenv("DOKKA_SPACE_PACKAGES_USER")
-                password = System.getenv("DOKKA_SPACE_PACKAGES_SECRET")
+                username = providers.systemProperty("DOKKA_SPACE_PACKAGES_USER").orNull
+                password = providers.systemProperty("DOKKA_SPACE_PACKAGES_SECRET").orNull
             }
         }
         maven {
             name = "spaceTest"
             url = uri("https://maven.pkg.jetbrains.space/kotlin/p/dokka/test")
             credentials {
-                username = System.getenv("DOKKA_SPACE_PACKAGES_USER")
-                password = System.getenv("DOKKA_SPACE_PACKAGES_SECRET")
+                username = providers.systemProperty("DOKKA_SPACE_PACKAGES_USER").orNull
+                password = providers.systemProperty("DOKKA_SPACE_PACKAGES_SECRET").orNull
             }
         }
         // Publish to a project-local Maven directory, for verification. To test, run:
@@ -75,9 +75,9 @@ publishing {
 
 signing {
     useInMemoryPgpKeys(
-        System.getenv("DOKKA_SIGN_KEY_ID")?.takeIf(String::isNotBlank),
-        System.getenv("DOKKA_SIGN_KEY")?.takeIf(String::isNotBlank),
-        System.getenv("DOKKA_SIGN_KEY_PASSPHRASE")?.takeIf(String::isNotBlank),
+        providers.systemProperty("DOKKA_SIGN_KEY_ID").orNull?.takeIf(String::isNotBlank),
+        providers.systemProperty("DOKKA_SIGN_KEY").orNull?.takeIf(String::isNotBlank),
+        providers.systemProperty("DOKKA_SIGN_KEY_PASSPHRASE").orNull?.takeIf(String::isNotBlank),
     )
     sign(publishing.publications)
     setRequired(provider { !project.version.toString().endsWith("-SNAPSHOT") })

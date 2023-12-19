@@ -94,17 +94,17 @@ publishing {
         maven {
             url = URI("https://oss.sonatype.org/service/local/staging/deploy/maven2/")
             credentials {
-                username = System.getenv("SONATYPE_USER")
-                password = System.getenv("SONATYPE_PASSWORD")
+                username = providers.systemProperty("SONATYPE_USER").orNull
+                password = providers.systemProperty("SONATYPE_PASSWORD").orNull
             }
         }
     }
 }
 
 fun Project.signPublicationsIfKeyPresent(publication: MavenPublication) {
-    val signingKeyId: String? = System.getenv("SIGN_KEY_ID")
-    val signingKey: String? = System.getenv("SIGN_KEY")
-    val signingKeyPassphrase: String? = System.getenv("SIGN_KEY_PASSPHRASE")
+    val signingKeyId: String? = providers.systemProperty("SIGN_KEY_ID").orNull
+    val signingKey: String? = providers.systemProperty("SIGN_KEY").orNull
+    val signingKeyPassphrase: String? = providers.systemProperty("SIGN_KEY_PASSPHRASE").orNull
 
     if (!signingKey.isNullOrBlank()) {
         extensions.configure<SigningExtension>("signing") {

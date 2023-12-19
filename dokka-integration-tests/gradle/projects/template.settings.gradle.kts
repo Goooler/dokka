@@ -20,7 +20,7 @@ pluginManagement {
     resolutionStrategy {
         eachPlugin {
             if (requested.id.id == "org.jetbrains.dokka") {
-                useModule("org.jetbrains.dokka:dokka-gradle-plugin:${System.getenv("DOKKA_VERSION")}")
+                useModule("org.jetbrains.dokka:dokka-gradle-plugin:${providers.systemProperty("DOKKA_VERSION").orNull}")
             }
 
             if (requested.id.id == "com.android.library") {

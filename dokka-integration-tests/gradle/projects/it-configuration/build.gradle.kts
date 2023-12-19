@@ -12,7 +12,7 @@ plugins {
 
 buildscript {
     dependencies {
-        classpath("org.jetbrains.dokka:dokka-base:${System.getenv("DOKKA_VERSION")}")
+        classpath("org.jetbrains.dokka:dokka-base:${providers.systemProperty("DOKKA_VERSION").orNull}")
     }
 }
 

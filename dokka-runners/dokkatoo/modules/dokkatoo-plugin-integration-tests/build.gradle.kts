@@ -225,7 +225,7 @@ tasks.setupDokkaTemplateProjects.configure {
                 """../template.root.gradle.kts""",
                 """./template.root.gradle.kts""",
               ).replace(
-                """${'$'}{System.getenv("DOKKA_VERSION")}""",
+                """${'$'}{providers.systemProperty("DOKKA_VERSION").orNull}""",
                 kotlinDokkaVersion.get(),
               )
           )
