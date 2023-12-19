@@ -35,16 +35,16 @@ val dokkaOutputDir = "$buildDir/dokka"
 
 tasks {
     withType<KotlinCompile>().configureEach {
-        compilerOptions.jvmTarget.set(JvmTarget.JVM_1_8)
+        compilerOptions.jvmTarget = JvmTarget.JVM_1_8
     }
     dokkaHtml {
-        outputDirectory.set(file(dokkaOutputDir))
+        outputDirectory = file(dokkaOutputDir)
     }
 }
 
 val javadocJar by tasks.registering(Jar::class) {
     dependsOn(tasks.dokkaHtml)
-    archiveClassifier.set("javadoc")
+    archiveClassifier = "javadoc"
     from(dokkaOutputDir)
 }
 
@@ -60,30 +60,30 @@ publishing {
             artifact(javadocJar.get())
 
             pom {
-                name.set("Dokka template plugin")
-                description.set("This is a plugin template for Dokka")
-                url.set("https://github.com/Kotlin/dokka-plugin-template/")
+                name = "Dokka template plugin"
+                description = "This is a plugin template for Dokka"
+                url = "https://github.com/Kotlin/dokka-plugin-template/"
 
                 licenses {
                     license {
-                        name.set("The Apache Software License, Version 2.0")
-                        url.set("http://www.apache.org/licenses/LICENSE-2.0.txt")
-                        distribution.set("repo")
+                        name = "The Apache Software License, Version 2.0"
+                        url = "http://www.apache.org/licenses/LICENSE-2.0.txt"
+                        distribution = "repo"
                     }
                 }
 
                 developers {
                     developer {
-                        id.set("JetBrains")
-                        name.set("JetBrains Team")
-                        organization.set("JetBrains")
-                        organizationUrl.set("http://www.jetbrains.com")
+                        id = "JetBrains"
+                        name = "JetBrains Team"
+                        organization = "JetBrains"
+                        organizationUrl = "http://www.jetbrains.com"
                     }
                 }
 
                 scm {
-                    connection.set("scm:git:git://github.com/Kotlin/dokka-plugin-template.git")
-                    url.set("https://github.com/Kotlin/dokka-plugin-template/tree/master")
+                    connection = "scm:git:git://github.com/Kotlin/dokka-plugin-template.git"
+                    url = "https://github.com/Kotlin/dokka-plugin-template/tree/master"
                 }
             }
         }

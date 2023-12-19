@@ -46,8 +46,8 @@ dependencies {
 
 val basePluginShadowJar by tasks.register("basePluginShadowJar", ShadowJar::class) {
     configurations = listOf(basePluginShadow)
-    archiveFileName.set("fat-base-plugin-${project.version}.jar")
-    archiveClassifier.set("")
+    archiveFileName = "fat-base-plugin-${project.version}.jar"
+    archiveClassifier = ""
 
     // service files are merged to make sure all Dokka plugins
     // from the dependencies are loaded, and not just a single one.
